@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building the application...'
+                // Add your build steps here (e.g., npm install, mvn clean install)
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                // Add your test steps here (e.g., pytest, unit tests)
+            }
+        }
+        stage('Run Python Script') {
+            steps {
+                script {
+                    echo 'Executing Python script...'
+                    sh 'python3 mytaha.py'
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying the application...'
+                // Add deployment steps here
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Pipeline completed.'
+        }
+        success {
+            echo 'Pipeline succeeded.'
+        }
+        failure {
+            echo 'Pipeline failed.'
+        }
+    }
+}
