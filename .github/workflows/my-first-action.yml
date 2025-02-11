@@ -1,15 +1,18 @@
 name: My First Action
 
 on: 
-  push:  # This triggers the action on a push event
+  push:  # This triggers the action when code is pushed
 
 jobs:
-  my-job:  # Define your job name
-    runs-on: ubuntu-latest  # This ensures the job runs on the latest Ubuntu runner
+  my-job:  # Name of the job
+    runs-on: ubuntu-latest  # Specifies the runner environment
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2  # Using the GitHub Actions Checkout action instead of running 'git clone'
+      - name: Checkout Repository
+        uses: actions/checkout@v4  # GitHub's official action to check out code
 
       - name: Print Hello World
         run: echo "Hello, GitHub Actions!"  # Prints a simple message
+
+      - name: Ping Google
+        run: ping -c 4 google.com  # Pings Google 4 times
