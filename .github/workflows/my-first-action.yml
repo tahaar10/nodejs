@@ -1,0 +1,15 @@
+name: My First Action
+
+on: 
+  push:  # This triggers the action on a push event
+
+jobs:
+  my-job:  # Define your job name
+    runs-on: ubuntu-latest  # This ensures the job runs on the latest Ubuntu runner
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2  # Using the GitHub Actions Checkout action instead of running 'git clone'
+
+      - name: Print Hello World
+        run: echo "Hello, GitHub Actions!"  # Prints a simple message
