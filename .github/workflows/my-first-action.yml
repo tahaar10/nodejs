@@ -17,3 +17,5 @@ jobs:
       - name: Check Internet Connectivity
         run: curl -I https://www.google.com
 
+      - name: List all files in the current directory
+        run: ls -la
