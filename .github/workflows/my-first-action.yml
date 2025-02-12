@@ -19,3 +19,6 @@ jobs:
 
       - name: List all files in the current directory
         run: ls -la
+
+      - name: Run Bash Script to Show Israel Time
+        run: bash show_time.sh
